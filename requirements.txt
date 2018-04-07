@@ -1,0 +1,36 @@
+# Base packages
+jupyter
+jupyterlab
+
+# Useful packages
+beautifulsoup4
+cython
+pytest
+requests
+scrapy
+
+# Data & Visualization
+altair
+bokeh
+matplotlib
+numpy
+pandas
+seaborn
+traces
+wordcloud
+
+# Excel Extractors
+openpyxl
+xlrd
+
+# Machine Learning
+# gensim
+# keras
+nltk
+scipy
+scikit-learn
+statsmodels
+# tensorflow
+
+# Specific Projects / Custom Packages
+pycrypto
