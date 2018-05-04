@@ -1,13 +1,14 @@
 function notebook {
-  local DOCKERFILE=~/.bashrc.d/notebook/Dockerfile
-  local DOCKERFILEDIR=$(dirname $DOCKERFILE)
-  local VERSION=$(date -u --date="@$(stat --format=%Y ${DOCKERFILE})" +%y%m%d%H)
+  local PROJECTDIR=~/.bashrc.d/notebook
+  local VERSIONFILE=${PROJECTDIR}/requirements.txt
+  local VERSION=$(date -u --date="@$(stat --format=%Y ${VERSIONFILE})" +%y%m%d%H)
+  # build your own image
   local IMAGE="${USER}/notebook:${VERSION}"
 
   # Check if image exists:
   if [ -z "$(docker images -q ${IMAGE})" ]; then
     echo "Image not found. Building image ... ${IMAGE}"
-    docker build --pull --tag ${IMAGE} ${DOCKERFILEDIR}
+    docker build --pull --tag ${IMAGE} ${PROJECTDIR}
   fi
 
   docker run --rm -it \
